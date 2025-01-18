@@ -1,4 +1,7 @@
 using Gallery.Data;
+using Gallery.Services.Services;
+using Gallery.Services.Services.Contracts;
+using Gallery.Web.Mapping;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +16,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<GalleryDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperConfiguration>());
+builder.Services.AddScoped<IPictureService, PictureServices>();
 
 var app = builder.Build();
 

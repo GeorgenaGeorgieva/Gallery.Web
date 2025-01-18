@@ -18,7 +18,7 @@ namespace Gallery.Web.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Gallery()
         {
             return View();
         }
